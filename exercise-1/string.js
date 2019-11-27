@@ -14,10 +14,14 @@ function capitalize(str) {
 }
 
 function camelCase(str) {
+    str = str.replace(/[^a-zA-Z ]/g, ' ');
     if (typeof str !== "string" || str.length === 0) return "";
     const array = str.toLowerCase().split(" ");
     for (let i=0; i<array.length;){
         array[i] = ucfirst(array[i++]);
     }
-    return array.join("").replace(/[^\w\s]/gi, '');
+
+    return array.join("");
 }
+
+
